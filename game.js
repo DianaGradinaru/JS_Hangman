@@ -69,15 +69,15 @@ function showGallows() {
     document.querySelector("#gallows").classList.add(cls);
 }
 
-function resetGallows() {
-    const gallows = document.getElementById("gallows");
-    const classList = Array.from(gallows.classList);
-    classList.forEach((_class) => {
-        if (_class !== 'try1') {
-            gallows.classList.remove(_class);
-        }
-    });
-}
+// function resetGallows() {
+//     const gallows = document.getElementById("gallows");
+//     const classList = Array.from(gallows.classList);
+//     classList.forEach((_class) => {
+//         if (_class !== 'try1') {
+//             gallows.classList.remove(_class);
+//         }
+//     });
+// }
 
 function showGuessed() {
     document.querySelector("#guessed").innerText = guessed.filter(l => !word.includes(l)).join(" ");
