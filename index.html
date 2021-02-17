@@ -12,60 +12,62 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Let's play hangman!</h1>
+<div class="container">
+    <h1>Let's play hangman!</h1>
 
-        <p>Your word is: </p>
-        <p id="word"></p>
+    <p>Your word is: </p>
+    <p id="word"></p>
 
-<!--        <div class="float-right">Mistakes: <span id="unGuessed">0</span> of <span id="tries"></span></div>-->
+    <!--        <div class="float-right">Mistakes: <span id="unGuessed">0</span> of <span id="tries"></span></div>-->
 
-        <p>Your guessed letters:</p>
-        <p id="guessed"></p>
+    <p>Your guessed letters:</p>
+    <p id="guessed"></p>
+</div>
+
+<ul class="alphabet">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+    <li>D</li>
+    <li>E</li>
+    <li>F</li>
+    <li>G</li>
+    <li>H</li>
+    <li>I</li>
+    <li>J</li>
+    <li>K</li>
+    <li>L</li>
+    <li>M</li>
+    <li>N</li>
+    <li>O</li>
+    <li>P</li>
+    <li>Q</li>
+    <li>R</li>
+    <li>S</li>
+    <li>T</li>
+    <li>U</li>
+    <li>V</li>
+    <li>W</li>
+    <li>X</li>
+    <li>Y</li>
+    <li>Z</li>
+</ul>
+
+<div id="gallows" class="try1"></div>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>You won! Your word was "<span id="theWord"></span>"</p>
     </div>
 
-    <ul class="alphabet">
-        <li>A</li>
-        <li>B</li>
-        <li>C</li>
-        <li>D</li>
-        <li>E</li>
-        <li>F</li>
-        <li>G</li>
-        <li>H</li>
-        <li>I</li>
-        <li>J</li>
-        <li>K</li>
-        <li>L</li>
-        <li>M</li>
-        <li>N</li>
-        <li>O</li>
-        <li>P</li>
-        <li>Q</li>
-        <li>R</li>
-        <li>S</li>
-        <li>T</li>
-        <li>U</li>
-        <li>V</li>
-        <li>W</li>
-        <li>X</li>
-        <li>Y</li>
-        <li>Z</li>
-    </ul>
-
-    <div id="gallows" class="try1"></div>
-
-    <div id="myModal" class="modal">
-    
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>You won! Your word was "<span id="theWord"></span>"</p>
-        </div>
-    
-    </div>
-    
-    
+</div>
+<br>
+<div id="btnContainer">
+    <button id="resetBtn" type="button">Reset</button>
+</div>
 </body>
 
 </html>

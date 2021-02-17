@@ -1,13 +1,22 @@
 let modal = document.getElementById("myModal");
 let span = document.getElementsByClassName("close")[0];
+const resetBtn = document.getElementById("resetBtn");
+
 span.onclick = function () {
     modal.style.display = "none";
 };
+
 window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
 };
+
+// window.addEventListener('click', (event) => {
+//     if (event.target === modal) {
+//         modal.style.display = "none";
+//     }
+// })
 
 var words = [
     "codecool",
@@ -39,7 +48,7 @@ function initGame() {
 
 initGame(); 
 
-// document.getElementById('tries').innerHTML = tries;
+// document.getElementById('tries').innerHTML = `${tries}`;
 
 function hasWon() {
     let unGuessed = guessed.filter((l) => !word.includes(l));
@@ -60,6 +69,16 @@ function showGallows() {
     document.querySelector("#gallows").classList.add(cls);
 }
 
+function resetGallows() {
+    const gallows = document.getElementById("gallows");
+    const classList = Array.from(gallows.classList);
+    classList.forEach((_class) => {
+        if (_class !== 'try1') {
+            gallows.classList.remove(_class);
+        }
+    });
+}
+
 function showGuessed() {
     document.querySelector("#guessed").innerText = guessed.filter(l => !word.includes(l)).join(" ");
 }
@@ -71,10 +90,16 @@ function showWord() {
         .join(" ");
 }
 
-// function reset() {
-//     initGame();
-//     showGallows();
-// }
+function reset() {
+    resetBtn.addEventListener('click', () => {
+        location.reload(true);
+        // initGame();
+        // resetGallows();
+        // document.getElementById("guessed").innerText ='';
+    });
+}
+
+reset();
 
 function selectLetter(event) {
     event.preventDefault();
