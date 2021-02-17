@@ -22,9 +22,9 @@ var words = [
     "project",
 ];
 
-const tries = 10;
-var word;
-var guessed;
+let tries = 6;
+let word;
+let guessed;
 
 function initGame() {
     word = words[Math.floor(Math.random() * words.length)];
@@ -39,10 +39,11 @@ function initGame() {
 
 initGame(); 
 
+
 function hasWon() {
-    /// guessed = guessed - displayed letters
+    let unGuessed = guessed.filter((l) => !word.includes(l))
     var x = document.querySelector("#word").innerText.replace(/[ _]+/g, "");
-    if (guessed.length < tries) {
+        if (unGuessed.length < tries) {
         if (x === word) {
             document.querySelector("#theWord").innerText = word;
             modal.style.display = "block";
@@ -53,12 +54,15 @@ function hasWon() {
 }
 
 function showGallows() {
-    var wrongGuesses = guessed.length - word.length
-}
-///function showGallows -> len(guessed) = imaginea #
+    let unGuessed = guessed.filter((l) => !word.includes(l)).length + 1;
+    let cls = "try" + unGuessed;
+    document.querySelector("#gallows").classList.add(cls)
 
-function showGuessed() {
-    document.querySelector("#guessed").innerText = guessed.join(" ");
+}
+
+function showguessed() {
+    document.querySelector("#guessed").innerText = guessed.filter(l => !word.includes(l)).join(" ");
+
 }
 
 function showWord() {
@@ -78,7 +82,8 @@ function selectLetter(event) {
     event.target.parentElement.removeChild(event.target);
 
     showWord();
-    showGuessed();
+    showguessed();
+    showGallows();
     hasWon();
 }
 
