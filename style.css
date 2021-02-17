@@ -1,25 +1,25 @@
 .alphabet {
     list-style-type: none;
-    margin:90px auto 0;
-    padding:0;
+    margin: 90px auto 0;
+    padding: 0;
     cursor: pointer;
-    width:80%;
-    text-align:center;
+    width: 80%;
+    text-align: center;
 }
 
 .alphabet li {
-    float:left;
-    margin:0;
-    padding:0;
-    border-right:1px solid darkgrey;
+    float: left;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid darkgrey;
     font-size: 13px;
-    -moz-box-sizing:border-box;
-    color:black;
-    display:inline-block;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
-    width:3.84%;
+    -moz-box-sizing: border-box;
+    color: black;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 3.84%;
 }
 
 .alphabet li:last-child {
@@ -27,6 +27,89 @@
 }
 
 .alphabet li:hover {
-    color:green;
+    color: green;
     background-color: lightgrey;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#gallows {
+    display: block;
+    width: 158px;
+    height: 230px;
+    background: url("hangman.png") top left no-repeat;
+    position: absolute;
+    top: 0;
+    left: 450px;
+}
+
+#gallows.try1 {
+    background-position-x: -116px;
+    background-position-y: -38px;
+}
+
+#gallows.try2 {
+    background-position-x: -371px;
+    background-position-y: -38px;
+}
+#gallows.try3 {
+    background-position-x: -116px;
+    background-position-y: -38px;
+}
+#gallows.try3 {
+    background-position-x: -625px;
+    background-position-y: -38px;
+}
+#gallows.try4 {
+    background-position-x: -116px;
+    background-position-y: -293px;
+}
+#gallows.try5 {
+    background-position-x: -371px;
+    background-position-y: -293px;
+}
+#gallows.try6 {
+    background-position-x: -625px;
+    background-position-y: -293px;
+}
+
+#gallows.try7 {
+    background-position-x: -371px;
+    background-position-y: -548px;
 }

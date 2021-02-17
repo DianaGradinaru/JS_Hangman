@@ -1,8 +1,13 @@
-
-function initGame() {
-    alert("Let's play hangman")
-};  
-initGame();
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function () {
+    modal.style.display = "none";
+};
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
 
 var words = [
     "codecool",
@@ -17,33 +22,63 @@ var words = [
     "project",
 ];
 
-var word = words[Math.floor(Math.random() * words.length)];
+const tries = 10;
+var word;
+var guessed;
 
-var answerArray = [];
-for (var i = 0; i < word.length; i++) {
-    answerArray[i] = "_";
-}
+function initGame() {
+    word = words[Math.floor(Math.random() * words.length)];
+    guessed = []
 
-var remainingLetters = word.length;
-while (remainingLetters > 0) {
-    alert('Your word is ' + answerArray.join(" "));
+    showWord();
+    
+    document
+        .querySelectorAll("ul.alphabet li")
+        .forEach((li) => li.addEventListener("click", selectLetter));
+};
 
-    var guess = prompt("Guess a letter, or click Cancel to stop playing.");
-    if (guess === null) {
-        break;
-    } else if (guess.length !== 1) {
-        alert("Please enter a single letter.");
-    } else {
-        for (var j = 0; j < word.length; j++) {
-            if (word[j] === guess) {
-                answerArray[j] = guess;
-                remainingLetters--;
-            }
+initGame(); 
+
+function hasWon() {
+    /// guessed = guessed - displayed letters
+    var x = document.querySelector("#word").innerText.replace(/[ _]+/g, "");
+    if (guessed.length < tries) {
+        if (x === word) {
+            document.querySelector("#theWord").innerText = word;
+            modal.style.display = "block";
         }
-    }
+    } else {
+        alert(`you lost; your word was "${word}"`); // modal here
+    } 
 }
 
-alert(answerArray.join(" "));
-alert("Good job! The answer was " + word);
+function showGallows() {
+    var wrongGuesses = guessed.length - word.length
+}
+///function showGallows -> len(guessed) = imaginea #
 
+function showGuessed() {
+    document.querySelector("#guessed").innerText = guessed.join(" ");
+}
+
+function showWord() {
+    var shownWord = word
+        .split("")
+        .map((l) => (guessed.includes(l) ? l : "_"))
+        .join(" ");
+    document.querySelector("#word").innerText = shownWord;
+}
+
+function selectLetter(event) {
+    event.preventDefault();
+
+    var letter = event.target.innerText;
+    guessed.push(letter.toLowerCase());
+
+    event.target.parentElement.removeChild(event.target);
+
+    showWord();
+    showGuessed();
+    hasWon();
+}
 

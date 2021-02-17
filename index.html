@@ -14,6 +14,13 @@
 <body>
     <h1>Let's play hangman!</h1>
 
+   
+    <p>Your word is: </p>
+    <p id="word"></p>
+
+    <p>Your guessed letters:</p>
+    <p id="guessed"></p>
+
     <ul class="alphabet">
         <li>A</li>
         <li>B</li>
@@ -43,6 +50,19 @@
         <li>Z</li>
     </ul>
 
+    <div id="gallows" class="try1"></div>
+
+    <div id="myModal" class="modal">
+    
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>You won! Your word was "<span id="theWord"></span>"</p>
+        </div>
+    
+    </div>
+    
+    
 </body>
 
 </html>
