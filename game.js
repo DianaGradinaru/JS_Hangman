@@ -22,7 +22,7 @@ var words = [
     "project",
 ];
 
-let tries = 6;
+let tries = 7;
 let word;
 let guessed;
 
@@ -39,6 +39,7 @@ function initGame() {
 
 initGame(); 
 
+// document.getElementById('tries').innerHTML = tries;
 
 function hasWon() {
     let unGuessed = guessed.filter((l) => !word.includes(l));
@@ -49,7 +50,7 @@ function hasWon() {
             modal.style.display = "block";
         }
     } else {
-        alert(`you lost; your word was "${word}"`); // modal here
+        alert(`You lost; your word was "${word}"`); // modal here
     } 
 }
 
@@ -69,6 +70,11 @@ function showWord() {
         .map((l) => (guessed.includes(l) ? l : "_"))
         .join(" ");
 }
+
+// function reset() {
+//     initGame();
+//     showGallows();
+// }
 
 function selectLetter(event) {
     event.preventDefault();
