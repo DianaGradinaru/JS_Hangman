@@ -74,11 +74,12 @@
     display: block;
     width: 158px;
     height: 230px;
+    top: 20px;
+    left: 1100px;
     background: url("hangman.png") top left no-repeat;
     background-blend-mode: darken;
     position: absolute;
-    top: 20px;
-    left: 1100px;
+
     border: 1px solid darkgray;
 }
 
